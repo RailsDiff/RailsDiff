@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { treeURL } from 'rails-diff/api/github';
+import { treeURL, diffURL } from 'rails-diff/api/github';
 import CompareRoute from 'rails-diff/routes/compare';
 
 export default class CompareController extends Controller {
@@ -19,6 +19,10 @@ export default class CompareController extends Controller {
 
   get targetURL(): string {
     return treeURL(this.comparison.targetVersion);
+  }
+
+  get diffURL(): string {
+    return diffURL(this.comparison.sourceVersion, this.comparison.targetVersion);
   }
 }
 

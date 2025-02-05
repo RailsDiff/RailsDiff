@@ -200,4 +200,19 @@ module('Acceptance | patch', (hooks) => {
         'Links to target rails new output'
       );
   });
+
+  test('links to the git-diff for selected versions', async function (assert) {
+    await visit('/');
+    await select('Source', '1.1.1');
+    await select('Target', '2.0.0');
+    await viewDiff();
+
+    assert
+      .dom("a[title='View git-diff of 1.1.1...2.0.0']")
+      .hasProperty(
+        'href',
+        new RegExp(`https://github.com/${REPOSITORY}/compare/v1.1.1...v2.0.0.diff`),
+        'Links to git-diff output'
+      );
+  });
 });

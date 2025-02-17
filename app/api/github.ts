@@ -67,3 +67,7 @@ export function fileURL(path: string, version: string): string {
 export function treeURL(version: string): string {
   return `https://github.com/${REPOSITORY}/tree/v${version}`;
 }
+
+export function diffURL(sourceVersion: string, targetVersion: string): string {
+  return `https://github.com/${REPOSITORY}/compare/v${sourceVersion}...v${targetVersion}.diff`;
+}

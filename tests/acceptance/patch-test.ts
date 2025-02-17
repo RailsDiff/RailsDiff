@@ -211,7 +211,9 @@ module('Acceptance | patch', (hooks) => {
       .dom("a[title='View git-diff of 1.1.1...2.0.0']")
       .hasProperty(
         'href',
-        new RegExp(`https://github.com/${REPOSITORY}/compare/v1.1.1...v2.0.0.diff`),
+        new RegExp(
+          `https://github.com/${REPOSITORY}/compare/v1.1.1...v2.0.0.diff`
+        ),
         'Links to git-diff output'
       );
   });
